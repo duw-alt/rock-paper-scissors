@@ -14,7 +14,7 @@
     let humanScore = 0;
 
     function getComputerChoice() {
-      let computerChoice = Math.floor((Math.random() * 100)/40);
+      let computerChoice = Math.floor((Math.random() * 100)/40); //generates a number between 0 and 2
 
       if (computerChoice === 0) {
         computerChoice = 'rock';
@@ -31,9 +31,9 @@
     function getHumanChoice() {
       let humanChoice = prompt('Choose rock, paper, or scissors:');
 
-      if (humanChoice === null) return null;
+      if (humanChoice === null) return null; // if player clicks cancel on the prompt stop the function
 
-      humanChoice = humanChoice.toLowerCase();
+      humanChoice = humanChoice.toLowerCase(); // makes case insensitive
 
       while (humanChoice !== 'rock' && humanChoice !== 'paper' && humanChoice !== 'scissors') {
         alert('Please enter a valid choice');
@@ -64,17 +64,18 @@
 
 
     function playGame() {
+      // calls playRound function until someone gets the score of 3
       while (computerScore < 3 && humanScore < 3) {
         const humanTurn = getHumanChoice();
         const computerTurn = getComputerChoice();
 
-        if (humanTurn === null) {
+        if (humanTurn === null) { // if prompt was canceled function stops
           console.log("Game exited.");
           return;
         }
 
         playRound(humanTurn, computerTurn);
-      }
+      } 
 
       if (computerScore < humanScore) {
         alert('You win!');

@@ -43,34 +43,23 @@
       return humanChoice;
     }
 
+
     function playRound(humanChoice, computerChoice) {
+      let result;
+
       if (humanChoice === computerChoice) {
-        console.log(` You chose ${humanChoice} computer chose ${computerChoice} it\'s a tie.`);
+        result = 'it\'s a tie.';
       } 
-      else if (humanChoice === 'rock' && computerChoice === 'scissors') {
-        console.log(` You chose ${humanChoice} computer chose ${computerChoice} you win.`);
+      else if (humanChoice === 'rock' && computerChoice === 'scissors' || humanChoice === 'paper' && computerChoice === 'rock' || humanChoice === 'scissors' && computerChoice === 'paper') {
+        result = 'you win.';
         humanScore++;
       } 
-      else if (humanChoice === 'rock' && computerChoice === 'paper') {
-        console.log(` You chose ${humanChoice} computer chose ${computerChoice} you lose.`);
+      else {
+        result = 'you loose.'
         computerScore++;
       } 
-      else if (humanChoice === 'paper' && computerChoice === 'scissors') {
-        console.log(` You chose ${humanChoice} computer chose ${computerChoice} you lose.`);
-        computerScore++;
-      } 
-      else if (humanChoice === 'paper' && computerChoice === 'rock') {
-        console.log(` You chose ${humanChoice} computer chose ${computerChoice} you win.`);
-        humanScore++;
-      } 
-      else if (humanChoice === 'scissors' && computerChoice === 'rock') {
-        console.log(` You chose ${humanChoice} computer chose ${computerChoice} you lose.`);
-        computerScore++;
-      } 
-      else if (humanChoice === 'scissors' && computerChoice === 'paper') {
-        console.log(` You chose ${humanChoice} computer chose ${computerChoice} you win.`);
-        humanScore++;
-      }
+
+      console.log(` You chose ${humanChoice} computer chose ${computerChoice} ${result}`)
 
       console.log(` Your score: ${humanScore}\n Computer score: ${computerScore}`);
     }

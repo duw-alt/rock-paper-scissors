@@ -14,33 +14,30 @@
     let humanScore = 0;
 
     function getComputerChoice() {
-      let computerChoice = Math.floor((Math.random() * 100)/40);
+      let computerChoice = Math.floor((Math.random() * 3)); // returns a number between 0 and 2
 
       if (computerChoice === 0) {
-        computerChoice = 'rock';
+        return 'rock';
       } else if (computerChoice === 1) {
-        computerChoice = 'paper';
+        return 'paper';
       } else {
-        computerChoice = 'scissors';
+        return 'scissors';
       }
-
-      return computerChoice;
     }
 
 
     function getHumanChoice() {
-      let humanChoice = prompt('Choose rock, paper, or scissors:');
+      while (true) {
+        let humanChoice = prompt('Choose rock, paper, or scissors:');
 
-      if (humanChoice === null) return null;
+        if (humanChoice === null) return null;
 
-      humanChoice = humanChoice.toLowerCase();
+        if (['rock', 'paper', 'scissors'].includes(humanChoice.toLowerCase())) {
+          return humanChoice.toLowerCase();
+        }
 
-      while (humanChoice !== 'rock' && humanChoice !== 'paper' && humanChoice !== 'scissors') {
         alert('Please enter a valid choice');
-        humanChoice = prompt('Choose rock, paper, or scissors:');
       }
-
-      return humanChoice;
     }
 
 
@@ -65,15 +62,15 @@
 
     function playGame() {
       while (computerScore < 3 && humanScore < 3) {
-        const humanTurn = getHumanChoice();
-        const computerTurn = getComputerChoice();
+        const humanChoice = getHumanChoice();
+        const computerChoice = getComputerChoice();
 
-        if (humanTurn === null) {
+        if (humanChoice === null) {
           console.log("Game exited.");
           return;
         }
 
-        playRound(humanTurn, computerTurn);
+        playRound(humanChoice, computerChoice);
       }
 
       if (computerScore < humanScore) {

@@ -14,7 +14,11 @@
     let humanScore = 0;
 
     function getComputerChoice() {
+<<<<<<< HEAD
       let computerChoice = Math.floor((Math.random() * 3)); // returns a number between 0 and 2
+=======
+      let computerChoice = Math.floor((Math.random() * 100)/40); //generates a number between 0 and 2
+>>>>>>> 36e33e2c22f2d73a2ca6fac8496c34f89c7970d6
 
       if (computerChoice === 0) {
         return 'rock';
@@ -30,11 +34,17 @@
       while (true) {
         let humanChoice = prompt('Choose rock, paper, or scissors:');
 
+<<<<<<< HEAD
         if (humanChoice === null) return null;
 
         if (['rock', 'paper', 'scissors'].includes(humanChoice.toLowerCase())) {
           return humanChoice.toLowerCase();
         }
+=======
+      if (humanChoice === null) return null; // if player clicks cancel on the prompt stop the function
+
+      humanChoice = humanChoice.toLowerCase(); // makes case insensitive
+>>>>>>> 36e33e2c22f2d73a2ca6fac8496c34f89c7970d6
 
         alert('Please enter a valid choice');
       }
@@ -61,17 +71,27 @@
 
 
     function playGame() {
+      // calls playRound function until someone gets the score of 3
       while (computerScore < 3 && humanScore < 3) {
         const humanChoice = getHumanChoice();
         const computerChoice = getComputerChoice();
 
+<<<<<<< HEAD
         if (humanChoice === null) {
+=======
+        if (humanTurn === null) { // if prompt was canceled function stops
+>>>>>>> 36e33e2c22f2d73a2ca6fac8496c34f89c7970d6
           console.log("Game exited.");
           return;
         }
 
+<<<<<<< HEAD
         playRound(humanChoice, computerChoice);
       }
+=======
+        playRound(humanTurn, computerTurn);
+      } 
+>>>>>>> 36e33e2c22f2d73a2ca6fac8496c34f89c7970d6
 
       if (computerScore < humanScore) {
         alert('You win!');

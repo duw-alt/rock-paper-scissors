@@ -3,88 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
   <title>Document</title>
 </head>
 <body>
   
+  <div class="wrap">
+    <div class="buttons">
+      <button class="rock-btn">rock</button>
+      <button class="paper-btn">paper</button>
+      <button class="scissors-btn">scissors</button>
+    </div>
+    
+    <div class="outcome">Make your move</div>
+    <div class="score"></div>
+    <div class="game-result"></div>
+    <button class="reset-btn">Reset</button>
+  </div>
 
 
-  <script>
-    let computerScore = 0;
-    let humanScore = 0;
-
-    function getComputerChoice() {
-      let computerChoice = Math.floor((Math.random() * 3)); // returns a number between 0 and 2
-
-      if (computerChoice === 0) {
-        return 'rock';
-      } else if (computerChoice === 1) {
-        return 'paper';
-      } else {
-        return 'scissors';
-      }
-    }
-
-
-    function getHumanChoice() {
-      while (true) {
-        let humanChoice = prompt('Choose rock, paper, or scissors:');
-
-        if (humanChoice === null) return null;
-
-        if (['rock', 'paper', 'scissors'].includes(humanChoice.toLowerCase())) {
-          return humanChoice.toLowerCase();
-        }
-
-        alert('Please enter a valid choice');
-      }
-    }
-
-
-    function playRound(humanChoice, computerChoice) {
-      let result;
-
-      if (humanChoice === computerChoice) {
-        result = 'it\'s a tie.';
-      } else if (humanChoice === 'rock' && computerChoice === 'scissors' || humanChoice === 'paper' && computerChoice === 'rock' || humanChoice === 'scissors' && computerChoice === 'paper') {
-        result = 'you win.';
-        humanScore++;
-      } else {
-        result = 'you loose.'
-        computerScore++;
-      } 
-
-      console.log(` You chose ${humanChoice} computer chose ${computerChoice} ${result}`)
-
-      console.log(` Your score: ${humanScore}\n Computer score: ${computerScore}`);
-    }
-
-
-    function playGame() {
-      // calls playRound function until someone gets the score of 3
-      while (computerScore < 3 && humanScore < 3) {
-        const humanChoice = getHumanChoice();
-        const computerChoice = getComputerChoice();
-
-        if (humanChoice === null) {
-          console.log("Game exited.");
-          return;
-        }
-
-        playRound(humanChoice, computerChoice);
-      }
-
-      if (computerScore < humanScore) {
-        alert('You win!');
-      } else if (computerScore > humanScore) {
-        alert('Computer wins :\'(');
-      } else {
-        alert('It\'s a tie.');
-      }
-    }
-
-    playGame();
-
-  </script>
+  <script src="app.js"></script>
 </body>
 </html>

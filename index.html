@@ -4,21 +4,30 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
+  <!-- NES CSS -->
+  <link href="https://unpkg.com/nes.css@2.3.0/css/nes.min.css" rel="stylesheet" />
+  <link href="https://unpkg.com/nes.css@latest/css/nes.min.css" rel="stylesheet" />
+  <link href="https://unpkg.com/nes.css/css/nes-core.min.css" rel="stylesheet" />
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
   <title>Document</title>
 </head>
 <body>
   
-  <div class="wrap">
+  <div class="wrap nes-container is-dark with-title is-centered">
+    <div class="title">ROCK PAPER SCISSORS</div>
     <div class="buttons">
-      <button class="rock-btn">rock</button>
-      <button class="paper-btn">paper</button>
-      <button class="scissors-btn">scissors</button>
+      <button class="rock-btn nes-btn">rock</button>
+      <button class="paper-btn nes-btn">paper</button>
+      <button class="scissors-btn nes-btn">scissors</button>
     </div>
     
     <div class="outcome">Make your move</div>
     <div class="score"></div>
     <div class="game-result"></div>
-    <button class="reset-btn">Reset</button>
+    <button class="reset-btn is-primary">Reset</button>
   </div>
 
 
